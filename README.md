@@ -9,4 +9,12 @@ import { fileURLToPath } from 'node:url';
 const puzzleInput = readFileSync(fileURLToPath(import.meta.url).replace('js', 'txt'), 'utf8');
 ```
 
-Divide by line breaks and remove empty lines: `.split('\n').filter(v => v != '')`
+Displaying solutions:
+
+```js
+console.log(`expected: ###, calculated: ${null}`);
+console.log(`part one solution: ${null}`);
+
+console.log(`expected: ###, calculated: ${null}`);
+console.log(`part two solution: ${null}`);
+```
