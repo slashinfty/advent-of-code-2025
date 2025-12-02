@@ -11,12 +11,8 @@ const main = array => {
     array.forEach(range => {
         const [ start, end ] = range.split('-');
         for (let i = Number(start); i <= Number(end); i++) {
-            if (/^(\d+)\1$/.test(i.toString())) {
-                invalidIdsPart1.push(i);
-            }
-            if (/^(\d+)\1+$/.test(i.toString())) {
-                invalidIdsPart2.push(i);
-            }
+            if (/^(\d+)\1$/.test(i.toString())) invalidIdsPart1.push(i);
+            if (/^(\d+)\1+$/.test(i.toString())) invalidIdsPart2.push(i);
         }
     });
     return [ invalidIdsPart1.reduce((sum, val) => sum + val, 0), invalidIdsPart2.reduce((sum, val) => sum + val, 0) ];
