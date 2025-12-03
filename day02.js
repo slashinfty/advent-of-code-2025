@@ -11,14 +11,21 @@ const main = array => {
     array.forEach(range => {
         const [ start, end ] = range.split('-');
         for (let i = Number(start); i <= Number(end); i++) {
-            if (/^(\d+)\1$/.test(i.toString())) invalidIdsPart1.push(i);
-            if (/^(\d+)\1+$/.test(i.toString())) invalidIdsPart2.push(i);
+            if (/^(\d+)\1$/.test(i.toString())) {
+                invalidIdsPart1.push(i);
+            }
+            if (/^(\d+)\1+$/.test(i.toString())) {
+                invalidIdsPart2.push(i);
+            }
         }
     });
     return [ invalidIdsPart1.reduce((sum, val) => sum + val, 0), invalidIdsPart2.reduce((sum, val) => sum + val, 0) ];
 }
 
-console.log(`expected: 1227775554, calculated: ${main(example)[0]}`);
-console.log(`part one solution: ${main(puzzleInput)[0]}`);
-console.log(`expected: 4174379265, calculated: ${main(example)[1]}`);
-console.log(`part two solution: ${main(puzzleInput)[1]}`);
+const [ exampleSolution1, exampleSolution2 ] = main(example);
+const [ solution1, solution2 ] = main(puzzleInput);
+
+console.log(`expected: 1227775554, calculated: ${exampleSolution1}`);
+console.log(`part one solution: ${solution1}`);
+console.log(`expected: 4174379265, calculated: ${exampleSolution2}`);
+console.log(`part two solution: ${solution2}`);
