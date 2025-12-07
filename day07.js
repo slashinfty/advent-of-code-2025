@@ -74,9 +74,8 @@ const part2 = array => {
         let prevRow = array.length - 2;
         do {
             const above = array[prevRow][col];
-            if (above === '^') {
-                stop = true;
-            } else {
+            if (above === '^') stop = true;
+            else {
                 const adjacentSplits = splitters.filter(s => s.row === prevRow && (s.col === col - 1 || s.col == col + 1));
                 total += adjacentSplits.reduce((sum, s) => sum + s.count, 0);
             }
